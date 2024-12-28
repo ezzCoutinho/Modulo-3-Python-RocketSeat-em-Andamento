@@ -1,15 +1,19 @@
-from flask import Flask
-
+from flask import Flask, request
+from models.tasks import Tasks
 # __name__ == "__main__"
 app = Flask(__name__)
 
-@app.route("/") # rota criada.
-def hello_world():
-  return "Hello World"
+# CRUD
+# Create, Read, Update and Delete = Criar, Ler, Atualizar e Apagar.
+# Tarefa
 
-@app.route("/about") 
-def about():
-  return "Sobre"
+tasks = [] # Vamos salvar os dados aqui.
+
+@app.route("/tasks", methods = ["POST", "GET", "PUT"])
+def create_task():
+  data = request.get_json()
+  print(data)
+  return "Test"
 
 if __name__ == "__main__":
   app.run(debug=True)
