@@ -35,17 +35,33 @@ def get_tasks():
 
 @app.route("/tasks/<int:id>", methods = ["GET"])
 def get_task(id):
-  task = None
+  
   for item in tasks:
     if item.id == id:
       return jsonify(item.to_dict())
-  return jsonify({"message:": "Não foi possível encontrar a atividade"}), 404 
+    
+    return jsonify({"message:": "Não foi possível encontrar a atividade"}), 404 
 
-@app.route("/user/<string:username>")
-def get_username(username):
-  print(username)
-  print(type(username))
-  return username
+@app.route("/user/<float:number>")
+def get_username(number):
+  print(number)
+  print(type(number))
+  return "%s" % number
+
+@app.route("/tasks/<int:id>", methods=["PUT"])
+def update_task(id):
+  for item in tasks:
+    if item.id == id:
+      data = request.get_json()
+
+      item.title = data.get("title")
+      item.description = data.get("description")
+      item.completed = data.get("completed")
+      
+      return jsonify({"message:": "Tarefa atualizada com sucesso"})
+    return jsonify({"message:": "Id não encontrado!"}), 404
+  
+  
 
 if __name__ == "__main__":
   app.run(debug=True)
