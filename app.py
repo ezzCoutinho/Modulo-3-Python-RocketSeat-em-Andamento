@@ -12,7 +12,7 @@ id_tasks_control = 1 # Deixando ela aqui, para evitar cópias dela, dentro do
 # corpo create_task
 
 @app.route("/tasks", methods = ["POST"])
-def create_task():
+def create_tasks():
   global id_tasks_control
   data = request.get_json()
   new_task = Tasks(id_tasks_control, data.get("title"), data.get("description"), data.get("completed"))
@@ -20,6 +20,18 @@ def create_task():
   tasks.append(new_task)
   print(tasks)
   return jsonify({"message": "Nova tarefa criada com sucesso!"})
+
+@app.route("/tasks", methods = ["GET"])
+def get_tasks():
+  task_list = []
+  for task in tasks:
+    task_list.append(task.to_dict())
+
+  output = {
+              "tasks": task_list,
+              "total_tasks": 0
+            }
+  return jsonify(output)
 
 if __name__ == "__main__":
   app.run(debug=True)
