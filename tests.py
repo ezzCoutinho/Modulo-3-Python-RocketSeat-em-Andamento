@@ -36,3 +36,24 @@ def test_get_task():
     assert "title" in response_json
     assert "description" in response_json
     assert "completed" in response_json
+
+def test_update_task():
+  if tasks:
+    tasks_id = tasks[0]
+    payload = {
+    "title": "Tarefa atualizada.",
+    "description": "Usando pytest",
+    "completed": True,
+  }
+    response = requests.put(f"{BASE_URL}/tasks/{tasks_id}", json= payload)
+    assert response.status_code == 200
+    response_json = response.json()
+    assert "message:" in response_json
+
+    # Nova requisição a tarefa especifica.
+    response = requests.get(f"{BASE_URL}/tasks/{tasks_id}")
+    assert response.status_code == 200
+    response_json = response.json()
+    assert response_json["title"] == payload["title"]
+    assert response_json["description"] == payload["description"]
+    assert response_json["completed"] == payload["completed"]
