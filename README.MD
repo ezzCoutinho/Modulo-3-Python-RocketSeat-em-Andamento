@@ -49,3 +49,7 @@ Podemos ter mais de um get, um get para todos os dados informados. ou get
 seletivos, como apenas o id, ou até mesmo uma outra chave...
 path == é a mesma coisa da string permitindo usar traços em parâmetros de url.
 UUID == permite usar hashs, criados aleatoriamente ou não, como parâmetro de url.
+
+dia 30/12
+https://www.notion.so/Python-dia-30-12-16cbc5c3824d801fab69f6d8a80e6a5a
+Hoje, aprendemos a requisição delete, onde conseguimos filtrar, por id e apagar, e implementamos um método de pesquisa, caso se encaixe na procura única, que é o BREAK, quando ele achar, ele para. Podemos usar também o return...
