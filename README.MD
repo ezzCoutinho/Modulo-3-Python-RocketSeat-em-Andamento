@@ -53,3 +53,12 @@ UUID == permite usar hashs, criados aleatoriamente ou não, como parâmetro de u
 dia 30/12
 https://www.notion.so/Python-dia-30-12-16cbc5c3824d801fab69f6d8a80e6a5a
 Hoje, aprendemos a requisição delete, onde conseguimos filtrar, por id e apagar, e implementamos um método de pesquisa, caso se encaixe na procura única, que é o BREAK, quando ele achar, ele para. Podemos usar também o return...
+
+dia 31/12 
+https://www.notion.so/Python-dia-31-12-16dbc5c3824d80009875d546d69e26f6
+Hoje vimos, sobre o pytest, que é um framework do python, que faz testes automatizados.
+Vimos também o requests que trabalha em conjunto com pytest, nele nos conseguimos
+passar a requisição juntamente com o parâmetro URL. Podendo ser convertido json e ser
+conferido logo mais com o assert
+assert é uma condicional, onde podemos passar o response.status_url, para verificação
+de igual, ou fazer verificação com chaves de um tipo .json.
